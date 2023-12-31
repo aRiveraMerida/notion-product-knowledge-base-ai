@@ -9,10 +9,11 @@ const {
 } = require('../utils/notionHelper')
 
 async function processAndSubmitToNotion(req, res) {
-  const { userInput, openAIKey, notionKey, databaseId } = req.body
+  const { userInput, openAIKey, notionKey, databaseId } = req.body;
 
   try {
-    const databaseItem = await processUserText(userInput, openAIKey)
+    const databaseItem = await processUserText(userInput, openAIKey);
+    console.log(databaseItem);
     let { sentiment, priority } = databaseItem
 
     // Make sure sentiment is between 1 and 3
@@ -60,7 +61,7 @@ async function processAndSubmitToNotion(req, res) {
 }
 
 async function retrieveItemFromNotion(req, res) {
-  const { itemId, notionKey } = req.body
+  const { notionKey, itemId } = req.query;
 
   try {
     const item = await getItemFromDatabase(itemId, notionKey)
@@ -71,7 +72,8 @@ async function retrieveItemFromNotion(req, res) {
 }
 
 async function updateItemInNotion(req, res) {
-  const { itemId, updatedProperties, notionKey } = req.body
+  const { itemId, notionKey } = req.query;
+  const { updatedProperties } = req.body
 
   try {
     const response = await updateItemInDatabase(
@@ -86,7 +88,7 @@ async function updateItemInNotion(req, res) {
 }
 
 async function deleteItemFromNotion(req, res) {
-  const { itemId, notionKey } = req.body
+  const { itemId, notionKey } = req.query
 
   try {
     const response = await deleteItemFromDatabase(itemId, notionKey)
@@ -97,7 +99,7 @@ async function deleteItemFromNotion(req, res) {
 }
 
 async function retrieveItemsFromNotion(req, res) {
-  const { databaseId, notionKey } = req.body
+  const { databaseId, notionKey } = req.query
 
   try {
     const items = await getItemsFromDatabase(databaseId, notionKey)
@@ -108,7 +110,8 @@ async function retrieveItemsFromNotion(req, res) {
 }
 
 async function retrieveItemsByNameFromNotion(req, res) {
-  const { databaseId, name, notionKey } = req.body
+  const { databaseId, notionKey } = req.query;
+  const { name } = req.params;
 
   try {
     const items = await getItemsByNameFromDatabase(databaseId, name, notionKey)

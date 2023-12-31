@@ -55,8 +55,10 @@ async function addItemToDatabase(item, notionKey, databaseId) {
 async function getItemFromDatabase(itemId, notionKey) {
   const notion = new Client({ auth: notionKey })
 
+  console.log(itemId);
+
   try {
-    const response = await notion.pages.retrieve({ page_id: itemId })
+    const response = await notion.blocks.retrieve({ block_id: itemId }) 
     return response
   } catch (error) {
     throw error
@@ -67,10 +69,14 @@ async function updateItemInDatabase(itemId, updatedProperties, notionKey) {
   const notion = new Client({ auth: notionKey })
 
   try {
-    const response = await notion.pages.update({
+    const response = await notion.blocks.update({
+      block_id: itemId,
+      ...updatedProperties
+    })
+    /* const response = await notion.pages.update({
       page_id: itemId,
       properties: updatedProperties
-    })
+    }) */
 
     return response
   } catch (error) {
@@ -82,10 +88,11 @@ async function deleteItemFromDatabase(itemId, notionKey) {
   const notion = new Client({ auth: notionKey })
 
   try {
-    const response = await notion.pages.update({
+    const response = await notion.blocks.delete({ block_id: itemId }) 
+    /* const response = await notion.pages.update({
       page_id: itemId,
       archived: true
-    })
+    }) */
 
     return response
   } catch (error) {

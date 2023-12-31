@@ -5,9 +5,9 @@ const modelController = require('../controllers/modelController')
 // Ruta para procesar y enviar texto a Notion
 router.post('/item', modelController.processAndSubmitToNotion)
 // Rutas adicionales para las otras funcionalidades
-router.get('/item/:itemId', modelController.retrieveItemFromNotion)
-router.put('/item/:itemId', modelController.updateItemInNotion)
-router.delete('/item/:itemId', modelController.deleteItemFromNotion)
+router.get('/item', modelController.retrieveItemFromNotion)
+router.put('/item', modelController.updateItemInNotion)
+router.delete('/item', modelController.deleteItemFromNotion)
 router.get('/items', modelController.retrieveItemsFromNotion)
 router.get('/items/name/:name', modelController.retrieveItemsByNameFromNotion)
 
