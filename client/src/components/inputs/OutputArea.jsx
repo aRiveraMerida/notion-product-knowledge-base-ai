@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types'
+/* import { useEffect } from 'react'
+import { API } from '../../utils/api_axios' */
 
 export default function OutputArea(props) {
   const { response } = props

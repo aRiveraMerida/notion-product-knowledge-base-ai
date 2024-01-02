@@ -1,22 +1,26 @@
-import Layout from '../layout/Layout'
-import UserInputSection from '../components/inputs/UserInputSection'
+import Layout from "../layout/Layout";
+import UserInputSection from "../components/inputs/UserInputSection";
+import GetAll from "../components/GetAll/GetAll";
 
 const Homepage = () => {
   return (
     <Layout>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-md-6'>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
             <UserInputSection />
+            <div>
+              <GetAll />
+            </div>
           </div>
-          <div className='pt-5 pt-md-0 col-md-6'>
+          <div className="pt-5 pt-md-0 col-md-6">
             <h2>How it works</h2>
             <p>
-              Watch the demo{' '}
+              Watch the demo{" "}
               <a
-                href='https://youtu.be/'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://youtu.be/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 here
               </a>
@@ -27,7 +31,7 @@ const Homepage = () => {
               OpenAI´s LLM to ...
             </p>
             <p>Here´s a simple step-by-step guide to getting started.</p>
-            <p className='small'>
+            <p className="small">
               <em>Note: You will need access to the GPT-4 API to use this.</em>
             </p>
             <h5>Step 1: Create a Notion database.</h5>
@@ -43,11 +47,11 @@ const Homepage = () => {
               <li>Sentiment (Select)</li>
             </ul>
             <p>
-              You can read more about database properties{' '}
+              You can read more about database properties{" "}
               <a
-                href='https://www.notion.so/help/database-properties'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://www.notion.so/help/database-properties"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 here
               </a>
@@ -57,11 +61,11 @@ const Homepage = () => {
             <p>
               Now you will need to create a Notion integration to acquire API
               Keys and then give the shared database access to the integration.
-              You can learn more about that{' '}
+              You can learn more about that{" "}
               <a
-                href='https://developers.notion.com/docs/create-a-notion-integration'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://developers.notion.com/docs/create-a-notion-integration"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 here
               </a>
@@ -70,17 +74,17 @@ const Homepage = () => {
             <h5>Step 3: Add your API Keys in the ´Settings´ tab.</h5>
             <p>
               Now you will need to add your API keys and database ID to the
-              settings. You can learn how to get your database ID{' '}
+              settings. You can learn how to get your database ID{" "}
               <a
-                href='https://developers.notion.com/reference/retrieve-a-database'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://developers.notion.com/reference/retrieve-a-database"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 here
               </a>
               .
             </p>
-            <p className='small'>
+            <p className="small">
               <em>
                 Note: You can optionally save these keys in local storage so you
                 don´t have to reinput them every time you visit the page. This
@@ -100,7 +104,7 @@ const Homepage = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;
