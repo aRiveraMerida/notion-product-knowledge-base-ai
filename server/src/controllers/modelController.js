@@ -9,7 +9,8 @@ const {
 } = require('../utils/notionHelper')
 
 async function processAndSubmitToNotion(req, res) {
-  const { userInput, openAIKey, notionKey, databaseId } = req.body;
+  const { openAIKey, notionKey, databaseId } = req.query;
+  const { userInput } = req.body;
 
   try {
     const databaseItem = await processUserText(userInput, openAIKey);
